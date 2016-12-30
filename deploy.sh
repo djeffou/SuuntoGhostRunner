@@ -10,6 +10,8 @@ mv js/script.js js/tmp-script.js
 mv css/style.css css/tmp-style.css
 yui-compressor --type js js/tmp-script.js -o js/script.js 
 yui-compressor --type css css/tmp-style.css -o css/style.css
+rm js/tmp-script.js
+rm css/tmp-style.css
 
 git init
 git config user.name "Travis CI"

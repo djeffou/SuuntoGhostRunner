@@ -1,7 +1,3 @@
-var maxNumberOfNodes = 149;
-//var maxNumberOfNodes = 59;
-
-
 //var xlf = document.getElementById('xlf');
 //function handleFile(e) {
 //  var files = e.target.files;
@@ -79,7 +75,12 @@ function go() {
     
     var transformedInput = transformInput(rawInput);
     
-	var minimizedArray = reduceNumberOfNodes(transformedInput);
+    var maxNbNodes = 149;
+    if(document.getElementById('ambit1').checked) {
+        maxNbNodes = 59;
+    }
+    
+	var minimizedArray = reduceNumberOfNodes(transformedInput, maxNbNodes);
 	displayMinimizedArray(minimizedArray);
 	
 	var suuntoCode = getSuuntoCode(minimizedArray);
@@ -152,13 +153,13 @@ function transformInput(input){
 	return output;
 }
 
-function reduceNumberOfNodes(array) {
+function reduceNumberOfNodes(array, maxNbNodes) {
     var fepsilon = 1;
     var initialLength = array.length;
     var lastValue = array[array.length-1];
     var totalDistance = array[array.length-1].y;
     
-    while (array.length > maxNumberOfNodes){
+    while (array.length > maxNbNodes){
         array = RDPalgorithm(array, fepsilon);
         array.push(lastValue);
         fepsilon += 0.01;
