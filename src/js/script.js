@@ -91,7 +91,6 @@ function go() {
 }
 
 function init() {
-    document.getElementById("plop").style.display = "none";
     document.getElementById("error").style.display = "none";
     document.getElementById("success").style.display = "none";
     document.getElementById('out').value = "";
