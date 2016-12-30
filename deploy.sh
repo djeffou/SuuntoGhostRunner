@@ -7,6 +7,6 @@ cd "gh-pages"
 git init
 git config user.name "Travis CI"
 git config user.email "none@none.no"
-git add .
+git --quiet add .
 git commit -m "Deploy to GitHub Pages"
-git push --quiet --force "https://djeffou:${GH_TOKEN}@github.com/djeffou/SuuntoGhostRunner.git" "master:gh-pages"
+git push --quiet --force "https://djeffou:${GH_TOKEN}@github.com/djeffou/SuuntoGhostRunner.git" "master:gh-pages" > /dev/null
