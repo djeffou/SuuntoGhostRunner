@@ -5,11 +5,11 @@ mkdir -p "gh-pages"
 cp -a "src/." "gh-pages/"
 cd "gh-pages"
 
-mv script.js tmp-script.js
-mv style.css tmp-style.css
-
-yui-compressor --type js tmp-script.js -o script.js 
-yui-compressor --type css tmp-style.css -o style.css
+# Minify
+mv js/script.js js/tmp-script.js
+mv css/style.css css/tmp-style.css
+yui-compressor --type js js/tmp-script.js -o js/script.js 
+yui-compressor --type css css/tmp-style.css -o css/style.css
 
 git init
 git config user.name "Travis CI"
