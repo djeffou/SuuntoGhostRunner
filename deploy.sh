@@ -4,6 +4,9 @@ set -e # exit with nonzero exit code if anything fails
 mkdir -p "gh-pages"
 cp -a "src/." "gh-pages/"
 cd "gh-pages"
+
+yui-compressor js/*.js
+
 git init
 git config user.name "Travis CI"
 git config user.email "none@none.no"

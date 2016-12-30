@@ -4,6 +4,9 @@ env:
   global:
    - secure: "M35pGRk9NMIdkr6qduZYdZ2l8fuwR+BpNLk/ZB184gxqsUWzPk2wUuZkVbzFeBbvC2Fp/2FFtYv6BweIws0tBjgKCcyyT2Az9kx2tnH2Q3lZ4NHEhXH/h027AHPZBGfYosgpMXfwVycfTQ4romlOtnLRDwxI/dwux1ASEY3F4pKbLfUQ2pVIHhPJlcPrVvpOR4b2ky3n3GSFdAF8QXfHkY6BOnLYXCLacSoEIsm0Gji0wQU3qf/pyqlOoJY/m0vBXkAqdUW/PspbP4FtklAscNSSWFYOezmwNH8o1xER4CduVFuk3fn4jXHPQ1jKzIn7RBociEpPGjxUFvgDVfcG8z2jbA3uP4iKgfvLBg4qRhaJenTwWzMnmfxYnP5IaRMpYk7EtSCjWhvZX3mau8i+JHRZCr2AdAHi0XXKYLyFsnCYjYd9O3FDsB/hAJGFdN9I0Ibq5XOT9qkORkxu7Us1l6qlJVWo+dWASuJkFEIBkfzs9/UCk4Qwl4W5O8wNFcthxpRQdDoGV/xqqjkv9PJb24vIPpKArpzngtpxNxN/PP6a+4qOix+EjlhmLKdkMeyKLoYK/587VbA/BOwrlRROir15jray9jV7NdzVCZkuueSpQtKGDqHjbso8f21F4aj8Jf7QeQq5MWqksIXanR80pDbDHCaBTN1QIaFjMwAG3Dg="
 
+before_install:
+ - sudo apt-get install yui-compressor
+ 
 install:
  - chmod +x ./deploy.sh
  - true
