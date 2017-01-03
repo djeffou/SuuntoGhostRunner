@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Ghost Runner</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <section class="header">
+            <p class="big">
+                Ghost Runner for Movescount           
+            </p>
+            <div>Distance : <span id="distance" class="stats">-</span> m<span class="stats"></span></div>
+            <div>From : <span id="from" class="stats">-</span> pts</div>
+            <div>To : <span id="to" class="stats">-</span> pts</div>
+        </section>
+        
+        <section class="left">
+            <form class="comment-form">
+
+                <input type="radio" name="model" id="ambit1" value="Ambit 1"/>
+                <label for="ambit1" class="modelname">Ambit 1</label>
+                <input type="radio" name="model" checked="checked" id="ambit2" value="Ambit 2/3"/>
+                <label for="ambit2" class="modelname">Ambit 2/3</label>
+                
+                <div class="section group">
+                    
+                    <div class="col span_1_of_3">
+                        <br />
+                        <textarea id="input" cols="40" rows="10" ></textarea>
+                    </div>
+                    
+                    <div class="col span_1_of_3">
+                        RDP algorithm seconds/meters
+                        <br />
+                        <textarea id="out" cols="40" rows="10"></textarea>
+                    </div>
+                    
+                    <div class="col span_1_of_3">
+                        Output
+                        <br />
+                        <textarea id="code" cols="40" rows="10"></textarea>
+                    </div>
+                    
+                </div>
+                
+            </form>
+           
+        </section>
+        
+        <section>
+            <a onclick="go();" type="button" class="go">Go !</a>
+            <a id="error" type="button" class="error"></a>
+            <a id="success" type="button" class="success">Success !</a>
+        </section>
+        
+        <section class="footer">
+        </section>
+    
+    </body>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+</html>
