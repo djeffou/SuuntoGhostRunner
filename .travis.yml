@@ -7,21 +7,19 @@ env:
 addons:
   sonarqube:
     token:
-      secure: "uQ9d2Dm774RYIIx2rieH8TKPj6bMZiNDzAo7fIktIF2xNZlTubp2rDv9pM4cPTD+OB3Z7SZ05Xm9fg+vODQ8hpFqEJWWnNKwCnKbHrAYhQdfH7SpU90UoSpoAPjXHOAGO5HuMeglmQJNpKyVIYWjdr8CvRX5xPKVt26N2wgUlp/EzxGEigLb6dFVsVsz+9E6m4B4e7pXFDHLBs9TUiFaqgnBsc67e9FBZBEJDWTr6Cyl+KUgCis4sy+LugN77Fmq8mzRKolloI5mYLqX7Q/e0VH/0tVePTV1xvoeETzBLZD06OtSQXPfuFT3/pVvVaB2uFHhIPR/SgcVkWAu0snOOlmvlPokWxcd79PA0vZU+ozbx+H+mqteiw0wLG1EzAwcyAFyE0m4GDZge8kAWPgxmsZJYOwsDIW8R50L084vtWjVK26Wo1hfSV7ay41uzK/jah7VPd4NwOOW+q4mpYkVw7GRC0gJmmHXz3Xj8gjIuYSPHSGf2MvhZk8j5a55rbKf+KrIV2MfawwzSvO3fiXlqfHfckaVs6OwcIX3pvNJT7ukeWLKVg7TY3Ig+nUnBkAqT02jp6+tSH5lJJ6ZTunzX8LGpjiW+Z+eoQAq6aVjVpOGH6ktaYKazJg6CbynxiIw0QkkNc2fvJLOQjVwofkhDiuLIboPb88bkD22U885+5I="
-      
+      secure: "xDviASS2LQpsozu47j+JPTMidO06mkrhnIBOW+SyPzlofJ/Bq1lFXJ+kUEfsFIPGIWe4iDCbJ3FFVVEx1rAWuAFR7IWwQUbGUMye+jqviN0XaSTe/tPcmyj0JoDvyQcs+PSL4vx98vTKsNUHHM1ZgFjGl5ax60Y7ytZmRcZltymsbPh6EFYJBmo92uptVzcG6W2sifU1Zv4o0hXFhgiJF60kqVSr02Ipd8asXG3vICVlVCymMM0CgZD8ZzDgNGZ0obL3DF8SEbtjzQXn3czZliqZsqWnW/YYCGi6DaGVAi78ahGAly1bTK/6p3STMs49odxrk0aSgCiOhsD28q+8vekjGLjIl5PV4chEUiKIfzDP5WjBz7b7idun63G0IBpLDfI7gxsvPRXbm0y/wV0LGweVm+4HBb2H47w/OW+mT6Itce3TWywf7MI+ebCr/bm9SX1SY7FyZS1vTA68A29GVfXHkZUhhgdT6WZbzPIi2Kwb9mBE3+FtxcCexKHISKdIFIl+zm7ebL9O+YxyW6rTAq6A7tEObHUpcIQeeelZ2qg5s5QFMkiOBLrG82RfuLv9zkQxu2j9Wg775w9kieW8jSuGhCDlErZy9Nfoyxf0e0P3Y9ZejleEDuLy4hiABxiMhngVD29v8bLCYjx10uc3oPGTl+/FkffH4rP0LXCBftI="
+
 before_install:
  - sudo apt-get install yui-compressor
  
 install:
  - chmod +x ./deploy.sh
- - true
 
 script:
- - true
-
-after_script:
  - ls -alrt
  - ./deploy.sh
+
+after_script:
  - sonar-scanner
 
 notifications:
