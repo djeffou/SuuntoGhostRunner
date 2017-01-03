@@ -124,7 +124,7 @@ function RDPalgorithm(listPoints, epsilon){
 	var index = 0;
 	var recResults = [];
 	var linearFunction = findLinearFunction(listPoints[0], listPoints[listPoints.length-1]);
-	for(i = 1; i < listPoints.length-1; i++) {
+	for(var i = 1; i < listPoints.length-1; i++) {
 		var d = distanceFromAPointToALine(listPoints[i], linearFunction);
 		if (d > dmax) {
 			index = i;
@@ -145,7 +145,9 @@ function RDPalgorithm(listPoints, epsilon){
 function displayMinimizedArray(tab) {
 	var r = "";
 	for(var key in tab) {
-		r += tab[key].x+'\t'+tab[key].y+'\n';
+	    if (tab.hasOwnProperty(key)) {
+		    r += tab[key].x+'\t'+tab[key].y+'\n';
+        }
 	}
 	document.getElementById('out').value = r;
 }
