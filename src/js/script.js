@@ -1,52 +1,3 @@
-//var xlf = document.getElementById('xlf');
-//function handleFile(e) {
-//  var files = e.target.files;
-//  var i,f;
-//  for (i = 0, f = files[i]; i != files.length; ++i) {
-//    var reader = new FileReader();
-//    var name = f.name;
-//    reader.onload = function(e) {
-//      var data = e.target.result;
-//
-//      var workbook = XLSX.read(data, {type: 'binary'});
-//
-//      var csv = to_csv(workbook);
-//      
-//      var trimedCSV = trim_csv(csv);
-//      
-//      console.log(trimedCSV);
-//    };
-//    reader.readAsBinaryString(f);
-//  }
-//}
-//xlf.addEventListener('change', handleFile, false);
-
-//function to_csv(workbook) {
-//	var result = [];
-//	workbook.SheetNames.forEach(function(sheetName) {
-//		var csv = XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
-//		if(csv.length > 0){
-//			result.push(csv);
-//		}
-//	});
-//	return result.join("\n");
-//}
-
-//function trim_csv(csv) {
-//    var trimedCSV = "";
-//    var splits = csv.split('\n');
-//    for(var i= 2; i< splits.length; i++) {
-//    
-//        lineSplits = splits[i].split(',');
-//        if(lineSplits.length > 30) {
-//            trimedCSV += lineSplits[62] ;
-//        } else {
-//            // TODO error...
-//        }
-//    }
-//    return trimedCSV;
-//} 
-
 // y = ax + b
 function findLinearFunction(p1, p2){
 	var a = (p2.y - p1.y) / (p2.x - p1.x);
@@ -120,9 +71,9 @@ function transformInput(input){
 	
 	var previousDistance = 0;
 	var firstTimestamp = 0;
-	for(i = 0; i < splits.length; i++){
+	for(var i = 0; i < splits.length; i++){
 		
-		b = splits[i].split('\t');
+		var b = splits[i].split('\t');
 		if(b.length != 3) {
 		    displayError("Wrong number of columns at line " + (i+1));
 		    return;
@@ -155,10 +106,8 @@ function transformInput(input){
 
 function reduceNumberOfNodes(array, maxNbNodes) {
     var fepsilon = 1;
-    var initialLength = array.length;
     var lastValue = array[array.length-1];
-    var totalDistance = array[array.length-1].y;
-    
+        
     while (array.length > maxNbNodes){
         array = RDPalgorithm(array, fepsilon);
         array.push(lastValue);
@@ -174,9 +123,9 @@ function RDPalgorithm(listPoints, epsilon){
 	var dmax = 0;
 	var index = 0;
 	var recResults = [];
-	linearFunction = findLinearFunction(listPoints[0], listPoints[listPoints.length-1]);
+	var linearFunction = findLinearFunction(listPoints[0], listPoints[listPoints.length-1]);
 	for(i = 1; i < listPoints.length-1; i++) {
-		d = distanceFromAPointToALine(listPoints[i], linearFunction);
+		var d = distanceFromAPointToALine(listPoints[i], linearFunction);
 		if (d > dmax) {
 			index = i;
 			dmax = d;
@@ -195,7 +144,7 @@ function RDPalgorithm(listPoints, epsilon){
 
 function displayMinimizedArray(tab) {
 	var r = "";
-	for(key in tab) {
+	for(var key in tab) {
 		r += tab[key].x+'\t'+tab[key].y+'\n';
 	}
 	document.getElementById('out').value = r;
