@@ -4,6 +4,11 @@ env:
   global:
    - secure: "M35pGRk9NMIdkr6qduZYdZ2l8fuwR+BpNLk/ZB184gxqsUWzPk2wUuZkVbzFeBbvC2Fp/2FFtYv6BweIws0tBjgKCcyyT2Az9kx2tnH2Q3lZ4NHEhXH/h027AHPZBGfYosgpMXfwVycfTQ4romlOtnLRDwxI/dwux1ASEY3F4pKbLfUQ2pVIHhPJlcPrVvpOR4b2ky3n3GSFdAF8QXfHkY6BOnLYXCLacSoEIsm0Gji0wQU3qf/pyqlOoJY/m0vBXkAqdUW/PspbP4FtklAscNSSWFYOezmwNH8o1xER4CduVFuk3fn4jXHPQ1jKzIn7RBociEpPGjxUFvgDVfcG8z2jbA3uP4iKgfvLBg4qRhaJenTwWzMnmfxYnP5IaRMpYk7EtSCjWhvZX3mau8i+JHRZCr2AdAHi0XXKYLyFsnCYjYd9O3FDsB/hAJGFdN9I0Ibq5XOT9qkORkxu7Us1l6qlJVWo+dWASuJkFEIBkfzs9/UCk4Qwl4W5O8wNFcthxpRQdDoGV/xqqjkv9PJb24vIPpKArpzngtpxNxN/PP6a+4qOix+EjlhmLKdkMeyKLoYK/587VbA/BOwrlRROir15jray9jV7NdzVCZkuueSpQtKGDqHjbso8f21F4aj8Jf7QeQq5MWqksIXanR80pDbDHCaBTN1QIaFjMwAG3Dg="
 
+addons:
+  sonarqube:
+    token:
+      secure: "uQ9d2Dm774RYIIx2rieH8TKPj6bMZiNDzAo7fIktIF2xNZlTubp2rDv9pM4cPTD+OB3Z7SZ05Xm9fg+vODQ8hpFqEJWWnNKwCnKbHrAYhQdfH7SpU90UoSpoAPjXHOAGO5HuMeglmQJNpKyVIYWjdr8CvRX5xPKVt26N2wgUlp/EzxGEigLb6dFVsVsz+9E6m4B4e7pXFDHLBs9TUiFaqgnBsc67e9FBZBEJDWTr6Cyl+KUgCis4sy+LugN77Fmq8mzRKolloI5mYLqX7Q/e0VH/0tVePTV1xvoeETzBLZD06OtSQXPfuFT3/pVvVaB2uFHhIPR/SgcVkWAu0snOOlmvlPokWxcd79PA0vZU+ozbx+H+mqteiw0wLG1EzAwcyAFyE0m4GDZge8kAWPgxmsZJYOwsDIW8R50L084vtWjVK26Wo1hfSV7ay41uzK/jah7VPd4NwOOW+q4mpYkVw7GRC0gJmmHXz3Xj8gjIuYSPHSGf2MvhZk8j5a55rbKf+KrIV2MfawwzSvO3fiXlqfHfckaVs6OwcIX3pvNJT7ukeWLKVg7TY3Ig+nUnBkAqT02jp6+tSH5lJJ6ZTunzX8LGpjiW+Z+eoQAq6aVjVpOGH6ktaYKazJg6CbynxiIw0QkkNc2fvJLOQjVwofkhDiuLIboPb88bkD22U885+5I="
+      
 before_install:
  - sudo apt-get install yui-compressor
  
@@ -17,6 +22,7 @@ script:
 after_script:
  - ls -alrt
  - ./deploy.sh
+ - sonar-scanner
 
 notifications:
   email: false
